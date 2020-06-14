@@ -48,8 +48,6 @@ class Home extends Component {
 
                         // value={password}
                         // onChange={event => this.onChangeInput(event.target)}
-                        // error={isError}
-                        // disabled={loading}
                     />
                     <br/>
 
@@ -61,7 +59,6 @@ class Home extends Component {
                     <Button
                         color="primary"
                         variant="contained"
-                        btnType="btn btn-raised btn-success"
                         onClick={this.login}
                     >
                     login

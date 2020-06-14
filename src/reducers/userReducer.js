@@ -45,7 +45,6 @@ const userReducer=(state=usersinitial,action)=>
     return (
         state.map(el=>(el.id===action.edituser.id)?el=action.edituser:el)
 
-
     )
     case 'DELETE_USER':
     return (

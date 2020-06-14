@@ -115,7 +115,6 @@ return ( <div>
               <Button
               color="primary"
               variant="contained"
-              btnType="btn btn-raised btn-success"
               >
               ADD USER  
               </Button>
@@ -125,7 +124,6 @@ return ( <div>
               <Button
                 color="primary"
                 variant="contained"
-                btnType="btn btn-raised btn-success"
               >
                 LOG OUT
               </Button>

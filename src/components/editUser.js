@@ -62,10 +62,9 @@ class EditUser extends Component {
                 <Button
                     color="primary"
                     variant="contained"
-                    btnType="btn btn-raised btn-success"
                     onClick={this.editUser}
                 >
-                OK
+                EDIT
                 </Button>
             </Link>
     </center>

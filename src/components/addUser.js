@@ -65,9 +65,8 @@ class AddUser extends Component {
             <Button
             color="primary"
             variant="contained"
-            btnType="btn btn-raised btn-success"
             onClick={this.addUser}
-            >  OK </Button>
+            >  ADD </Button>
         </Link>
         <br/>
 
