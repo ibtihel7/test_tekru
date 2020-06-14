@@ -1,7 +1,6 @@
 import React ,{Component} from 'react'
 import { Button, TextField } from '@material-ui/core'
 import {Link} from 'react-router-dom'
-// import Logo from './logo.png '
 import Img from './logo.png'
 
 
@@ -19,15 +18,10 @@ class Home extends Component {
         return ( <div className ='login'>
             
             <center>
-                
-
-
-            <img src= {Img} alt="pic" height = "80px"/>
-<br/>
+                <img src= {Img} alt="pic" height = "80px"/>
+                <br/>
                 <h1>LOGIN</h1>
-          
-
-<form className="access-form" action="/">
+                <form className="access-form" action="/">
                     <TextField
                         id="outlined-login-input"
         
@@ -78,8 +72,8 @@ class Home extends Component {
          </Link>  
                   
                 </form>
-                </center>
-        </div> );
+            </center>
+            </div> );
     }
 }
  

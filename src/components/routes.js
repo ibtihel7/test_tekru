@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom'
-// import { PrivateRoute } from '../_components';
+// import { PrivateRoute } from '../components';
 import Home from './home'
 import ListUser from './listUser'
 import AddUser from './addUser'

@@ -38,7 +38,7 @@ class AddUser extends Component {
 
     render() { 
         return ( <div className='add-user-container'>
-            <center>
+        <center>
         <h1>ADD USER</h1>
         <h5>Name </h5>
         <Input type='text' name='name' onChange={this.handleChange}/>
@@ -61,25 +61,19 @@ class AddUser extends Component {
         <br/>
         <br/>
 
-        <Link to='/users'>
-       
-<Button
-    color="primary"
-variant="contained"
-btnType="btn btn-raised btn-success"
-onClick={this.addUser}
-              >
-    OK
-  </Button>
-  </Link>
-<br/>
+        <Link to='/users'>   
+            <Button
+            color="primary"
+            variant="contained"
+            btnType="btn btn-raised btn-success"
+            onClick={this.addUser}
+            >  OK </Button>
+        </Link>
+        <br/>
 
-
-        </center>
-        </div> )
+    </center>
+    </div> )
 }
-
-
 }
 const mapDispatchToProps=(dispatch)=>
 {
