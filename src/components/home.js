@@ -1,5 +1,5 @@
 import React ,{Component} from 'react'
-import { Button, TextField } from '@material-ui/core'
+import { Button, TextField ,  InputLabel } from '@material-ui/core';
 import {Link} from 'react-router-dom'
 import Img from './logo.png'
 
@@ -22,9 +22,9 @@ class Home extends Component {
                 <br/>
                 <h1>LOGIN</h1>
                 <form className="access-form" action="/">
+               < InputLabel>User Name</InputLabel> 
                     <TextField
                         id="outlined-login-input"
-        
                         className="login-textField"
                         type="text"
                         name="username"
@@ -33,12 +33,9 @@ class Home extends Component {
                         margin="dense"
                         // value={username}
                         onChange={this.handleChange}
-                     
-                        // error={isError}
-                        // disabled={loading}
-                        // helperText={isError ? errorText : false}
                     />
                     <br/>
+                    < InputLabel>Password</InputLabel> 
                     <TextField
                  
                         className="password-textField"
@@ -61,15 +58,15 @@ class Home extends Component {
 
                     <Link to='/users'>
        
-       <Button
-           color="primary"
-       variant="contained"
-       btnType="btn btn-raised btn-success"
-       onClick={this.login}
-                     >
-           OK
-         </Button>
-         </Link>  
+                    <Button
+                        color="primary"
+                        variant="contained"
+                        btnType="btn btn-raised btn-success"
+                        onClick={this.login}
+                    >
+                    login
+                    </Button>
+                    </Link>  
                   
                 </form>
             </center>
