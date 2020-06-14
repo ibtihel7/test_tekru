@@ -45,7 +45,7 @@ class AddUser extends Component {
         <h5>Family Name </h5>
         <Input type='text' name='family_name' onChange={this.handleChange}/>
         <h5> Password </h5>
-        <Input type='text' name='password' onChange={this.handleChange}/>
+        <Input type='password' name='password' onChange={this.handleChange}/>
         
         <h5>  Last Login Date </h5>
         <Input type='text' name=' last_login_date' onChange={this.handleChange}/>
@@ -55,9 +55,9 @@ class AddUser extends Component {
         <Input type='text' name='updated_at' onChange={this.handleChange}/>
         
         <h5>Phone </h5>
-        <Input type='text' name='phone' onChange={this.handleChange}/>
+        <Input type='number' name='phone' onChange={this.handleChange}/>
         <h5>Email </h5>
-        <Input type='text' name='email' onChange={this.handleChange}/>
+        <Input type='email' name='email' onChange={this.handleChange}/>
         <br/>
         <br/>
 
@@ -72,6 +72,8 @@ onClick={this.addUser}
     OK
   </Button>
   </Link>
+<br/>
+
 
         </center>
         </div> )

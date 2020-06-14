@@ -1,8 +1,8 @@
 var usersinitial=[{
     id:'2',
-    name:'IBTIHEL',
+    name:'ibtihel',
     family_name:'HAMDI',
-    password:'****',
+    password:'ibtihel',
     last_login_date:'15/05/2020',
     created_at:'12/12/2019',
     updated_at:'10/01/2020',
@@ -12,9 +12,9 @@ var usersinitial=[{
 
 {
     id:'3',
-    name:'Admin1',
+    name:'admin1',
     family_name:'ADMIN2',
-    password:'****',
+    password:'admin1',
     last_login_date:'13/06/2020',
     created_at:'12/05/2020',
     updated_at:'12/06/2020',
@@ -23,9 +23,9 @@ var usersinitial=[{
 
 {
         id:'4',
-        name:'Admin2',
+        name:'admin2',
         family_name:'ADMIN2',
-        password:'****',
+        password:'admin2',
         last_login_date:'14/06/2020',
         created_at:'13/06/2019',
         updated_at:'13/06/2020',

@@ -122,6 +122,7 @@ columns={columns}
 /> 
 </Styles>
 <br/>
+
 <Link to ='./addUser'>
 <Button
 color="primary"
@@ -129,6 +130,17 @@ variant="contained"
               btnType="btn btn-raised btn-success"
               >
             ADD USER
+  </Button>
+  </Link>
+  <Link to ='./'>
+  <br/>  <br/>
+
+  <Button
+    color="primary"
+variant="contained"
+btnType="btn btn-raised btn-success"
+              >
+    LOG OUT
   </Button>
   </Link>
   </center>

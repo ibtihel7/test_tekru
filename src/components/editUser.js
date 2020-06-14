@@ -45,7 +45,7 @@ class EditUser extends Component {
         <h5>Family Name </h5>
         <Input type='text' name='family_name' value={this.state.family_name} onChange={this.handleChange}/>
         <h5> Password </h5>
-        <Input type='text' name='password' value={this.state.password} onChange={this.handleChange}/>
+        <Input type='password' name='password' value={this.state.password} onChange={this.handleChange}/>
         
         <h5>  Last Login Date </h5>
         <Input type='text' name=' last_login_date' value={this.state.last_login_date}  onChange={this.handleChange}/>
@@ -55,9 +55,9 @@ class EditUser extends Component {
         <Input type='text' name='updated_at' value={this.state.updated_at} onChange={this.handleChange}/>
         
         <h5>Phone </h5>
-        <Input type='text' name='phone' value={this.state.phone} onChange={this.handleChange}/>
+        <Input type='number' name='phone' value={this.state.phone} onChange={this.handleChange}/>
         <h5>Email </h5>
-        <Input type='text' name='email' value={this.state.email} onChange={this.handleChange}/>
+        <Input type='email' name='email' value={this.state.email} onChange={this.handleChange}/>
             <br/><br/>
 
 
@@ -96,6 +96,8 @@ const mapDispatchToProps=(dispatch)=>
          }
      }
 }
+
+
 
 
 

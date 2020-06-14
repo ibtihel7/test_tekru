@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Route} from 'react-router-dom'
+// import { PrivateRoute } from '../_components';
 import Home from './home'
 import ListUser from './listUser'
 import AddUser from './addUser'
@@ -11,6 +12,8 @@ class Routes extends Component {
     }
     render() { 
         return ( <div className='routes-container'>
+
+{/* <PrivateRoute exact path="/" component={HomePage} /> */}
                  <Route exact path='/' component={Home}/>   
                  <Route exact path='/users' component={ListUser}/>
                  <Route exact path='/addUser' component={AddUser}/>
@@ -24,3 +27,7 @@ class Routes extends Component {
 }
  
 export default Routes;
+
+
+
+
