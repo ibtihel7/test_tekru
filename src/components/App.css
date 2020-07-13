@@ -1,22 +1,17 @@
-
-
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
 
-
-
 .App-link {
   color: #61dafb;
 }
 
-h1{
-  color: blue ;
-  font-style: italic
+h1 {
+  color: blue;
+  font-style: italic;
 }
 
-.login{
+.login {
   margin-top: 70px;
-
 }

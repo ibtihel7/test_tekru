@@ -1,0 +1,39 @@
+(function () {
+  let timeout;
+
+  function init(attempts) {
+    clearTimeout(timeout)
+    attempts = attempts || 1
+    if (attempts > 3) return
+    if (typeof CodeFundAd === 'undefined') {
+      timeout = setTimeout(function () { init(attempts + 1) }, 350)
+      return
+    }
+    new CodeFundAd({"selector":"#codefund_ad","template":"centered","theme":"light","fallback":false,"urls":{"impression":"https://codefund.app/display/e4aae4ca-8ebf-4f95-a571-424238df8ebd.gif","campaign":"https://codefund.app/impressions/e4aae4ca-8ebf-4f95-a571-424238df8ebd/click?campaign_id=1055\u0026creative_id=986\u0026property_id=51\u0026template=centered\u0026theme=light","poweredBy":"https://codefund.app/invite/lN4RA92tcuA","adblock":"https://cdn2.codefund.app/assets/px.js","uplift":"https://codefund.app/impressions/e4aae4ca-8ebf-4f95-a571-424238df8ebd/uplift?advertiser_id=1116"},"creative":{"name":"Misc","headline":"DigitalOcean","body":"Save time and money with the cloud platform loved by developers.","cta":"Get $100 Free Credit","imageUrls":{"icon":"https://cdn2.codefund.io/9ojeaqhivu2yo5ez503irgubk8ka","small":"https://cdn2.codefund.io/zfvfb73k3zapsl4yr7ya6wugco45","large":"https://cdn2.codefund.io/jrfvia3kzqbjzmfcubqyp3hobawf","wide":"https://cdn2.codefund.io/el9p6qa8j91zr9nhoy29sdk3tb7t"}}})
+  }
+
+  const codefundThemeName = 'light'
+  const codefundStylesheetId = 'codefund-style'
+  const codefundScriptId = 'codefund-script'
+
+  if (!document.getElementById(codefundStylesheetId) && codefundThemeName !== 'unstyled') {
+    const stylesheet = document.createElement('link')
+    stylesheet.setAttribute('id', codefundStylesheetId)
+    stylesheet.setAttribute('rel', 'stylesheet')
+    stylesheet.setAttribute('media', 'all')
+    stylesheet.setAttribute('href', 'https://codefund.app/packs/css/code_fund_ad-eb559e73.css')
+    stylesheet.addEventListener('load', init)
+    document.head.appendChild(stylesheet)
+  }
+
+  if (document.getElementById(codefundScriptId)) {
+    init()
+  } else {
+    const script = document.createElement('script')
+    script.setAttribute('id', codefundScriptId)
+    script.setAttribute('type', 'text/javascript')
+    script.setAttribute('src', 'https://codefund.app/packs/js/code_fund_ad-c5122a9eb2cf2a34fc49.js')
+    script.addEventListener('load', init)
+    document.head.appendChild(script)
+  }
+})()
