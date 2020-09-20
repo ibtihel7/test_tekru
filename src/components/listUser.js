@@ -3,6 +3,7 @@ import ReactTable from "./reactTable";
 import Button from "@material-ui/core/button";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import axios from 'axios' ;
 import IconButton from "@material-ui/core/IconButton";
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from "@material-ui/icons/Edit";
@@ -48,6 +49,19 @@ const Styles = styled.div`
   }
 `;
 class ListUser extends Component {
+// axios
+  componentDidMount=()=>{
+    axios.get('/get-users').then((res)=>this.props.updateUserReducer(res.data))
+}
+
+
+// 
+deleteUser=(id)=>
+{ axios.delete(`/delete-user/${id}`)   
+.then(()=>this.props.deleteUserReducer(id)) 
+.catch((err)=>alert(err)) 
+}
+
   render() {
     const { users } = this.props;
 
@@ -89,17 +103,33 @@ class ListUser extends Component {
         accessor: "actions",
 
         Cell: ({ row }) => (
-          <div>
-            <Link to={`/editUser/${row.original.id}`}>
-              <IconButton aria-label="edit">
-                <EditIcon />
-              </IconButton>
-            </Link>
 
+
+          // deleteUser=()=>
+          // { 
+          
+          // axios.delete(`/delete-user/${row.original._id}`)   
+          // .then(()=>this.props.deleteUserReducer(row.original._id)) 
+          // .catch((err)=>alert(err)) 
+          // }
+
+
+          <div>
+              <IconButton aria-label="edit">
+              <Link to={`/editUser/${row.original._id}`}>
+                <EditIcon />
+                </Link>
+              </IconButton>
+             
             <IconButton aria-label="delete">
+            {/* <Link to="/users"> */}
               <DeleteIcon
-                onClick={() => this.props.deleteReducer(row.original.id)}
+                onClick={() => this.deleteUser(row.original._id)}
+
+
               />
+                          {/* </Link> */}
+
             </IconButton>
           </div>
         ),
@@ -139,10 +169,19 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteReducer: (id) => {
+    // ADD BACK
+    updateUserReducer:users=>
+    {
+        dispatch({
+            type:'UPDATE_USERS',
+            users
+        })
+    },
+    // 
+    deleteUserReducer: (_id) => {
       dispatch({
-        type: "DELETE_USER",
-        id,
+        type: "REMOVE_USER",
+        _id,
       });
     },
   };

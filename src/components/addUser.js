@@ -4,21 +4,23 @@ import Button from "@material-ui/core/button";
 import Input from "@material-ui/core/input";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import axios from 'axios'
+
 
 class AddUser extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      id: "",
-      name: "",
-      family_name: "",
-      password: "",
-      last_login_date: "",
-      created_at: "",
-      updated_at: "",
-      phone: "",
-      email: "",
-    };
+    // this.state = {
+    //   _id: "",
+    //   name: "",
+    //   family_name: "",
+    //   password: "",
+    //   last_login_date: "",
+    //   created_at: "",
+    //   updated_at: "",
+    //   phone: "",
+    //   email: "",
+    // };
   }
 
   handleChange = (event) => {
@@ -27,9 +29,21 @@ class AddUser extends Component {
     });
   };
 
-  addUser = () => {
-    this.props.addReducer({ ...this.state, id: Math.random() * 1000 + "" });
-  };
+  // addUser = () => {
+  //   this.props.addReducer({ ...this.state, id: Math.random() * 1000 + "" });
+  // };
+
+
+
+// add axios
+  addUser=()=>
+  {
+    axios.post('/add-user',{...this.state})
+     .then(()=>this.props.addUserReducer({...this.state}))
+     .catch((err)=>alert(err)) 
+     console.log({...this.state});
+  }
+  // 
 
   render() {
     return (
@@ -76,7 +90,7 @@ class AddUser extends Component {
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    addReducer: (newuser) => {
+    addUserReducer: (newuser) => {
       dispatch({
         type: "ADD_USER",
         newuser,

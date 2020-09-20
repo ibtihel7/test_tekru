@@ -3,13 +3,15 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/button";
 import Input from "@material-ui/core/Input";
+import axios from 'axios'
+
 
 class EditUser extends Component {
   constructor(props) {
     super(props);
-    const user = this.props.users.filter((el) => el.id === this.props.id)[0];
+    const user = this.props.users.filter((el) => el._id === this.props._id)[0];
     this.state = {
-      id: user.id,
+      _id: user._id,
       name: user.name,
       family_name: user.family_name,
       password: user.password,
@@ -27,12 +29,35 @@ class EditUser extends Component {
     });
   };
 
-  editUser = () => {
-    this.props.editReducer({ ...this.state });
-  };
+  // editUser = () => {
+  //   this.props.editReducer({ ...this.state });
+  // };
+
+// add axios
+  editUser=()=>
+  {
+     axios.put(`/edit-user/${this.state._id}`,{
+      // _id: this.state._id,
+      name: this.state.name,
+      family_name: this.state.family_name,
+      password: this.state.password,
+      last_login_date: this.state.last_login_date,
+      created_at: this.state.created_at,
+      updated_at: this.state.updated_at,
+      phone: this.state.phone,
+      email: this.state.email,
+   }) 
+    .then(()=>this.props.editUserReducer({...this.state})) 
+    .catch((err)=>alert(err))
+  }
+// 
+
+
 
   render() {
     return (
+      
+
       <div>
         <center>
           <h1>EDIT USER</h1>
@@ -96,9 +121,11 @@ class EditUser extends Component {
           <br />
 
           <Link to="/users">
+
             <Button color="primary" variant="contained" onClick={this.editUser}>
               EDIT
             </Button>
+            
           </Link>
         </center>
       </div>
@@ -113,7 +140,9 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    editReducer: (edituser) => {
+    editUserReducer: (edituser) => {
+      
+
       dispatch({
         type: "EDIT_USER",
         edituser,

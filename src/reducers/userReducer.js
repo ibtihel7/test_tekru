@@ -1,6 +1,6 @@
-var usersinitial = [
+var users = [
   {
-    id: "2",
+    _id: "2",
     name: "ibtihel",
     family_name: "HAMDI",
     password: "ibtihel",
@@ -12,7 +12,7 @@ var usersinitial = [
   },
 
   {
-    id: "3",
+    _id: "3",
     name: "admin1",
     family_name: "ADMIN1",
     password: "admin1",
@@ -24,7 +24,7 @@ var usersinitial = [
   },
 
   {
-    id: "4",
+    _id: "4",
     name: "admin2",
     family_name: "ADMIN2",
     password: "admin2",
@@ -35,7 +35,7 @@ var usersinitial = [
     email: "admin2@gmail.com",
   },
   {
-    id: "5",
+    _id: "5",
     name: "admin3",
     family_name: "ADMIN3",
     password: "admin3",
@@ -46,7 +46,7 @@ var usersinitial = [
     email: "admin3@gmail.com",
   },
   {
-    id: "6",
+    _id: "6",
     name: "admin4",
     family_name: "ADMIN4",
     password: "admin4",
@@ -57,7 +57,7 @@ var usersinitial = [
     email: "admin4@gmail.com",
   },
   {
-    id: "7",
+    _id: "7",
     name: "admin5",
     family_name: "ADMIN5",
     password: "admin5",
@@ -68,7 +68,7 @@ var usersinitial = [
     email: "admin5@gmail.com",
   },
   {
-    id: "8",
+    _id: "8",
     name: "admin6",
     family_name: "ADMIN6",
     password: "admin6",
@@ -80,19 +80,31 @@ var usersinitial = [
   },
 ];
 
-const userReducer = (state = usersinitial, action) => {
-  switch (action.type) {
-    case "ADD_USER":
-      return state.concat(action.newuser);
-    case "EDIT_USER":
-      return state.map((el) =>
-        el.id === action.edituser.id ? (el = action.edituser) : el
-      );
-    case "DELETE_USER":
-      return state.filter((el, index) => el.id !== action.id);
-    default:
-      return state;
-  }
-};
+const userReducer=(state=users,action)=>
+{
+  switch(action.type)
+  {
+      case 'ADD_USER' :
+      return (
+          state.concat(action.newuser)
+      )
 
-export default userReducer;
+      case 'EDIT_USER':
+        debugger
+      return (
+          state.map(el=>el._id===action.edituser._id? el=action.edituser:el)
+      )
+      debugger
+      case 'REMOVE_USER':
+      return (
+          state.filter(el=>el._id!==action._id)
+      )
+      case 'UPDATE_USERS':
+      return(
+          state=action.users
+      )
+      default :
+      return state
+  }
+}
+export default userReducer

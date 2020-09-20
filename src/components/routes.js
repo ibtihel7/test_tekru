@@ -17,8 +17,8 @@ class Routes extends Component {
                  <Route exact path='/' component={Home}/>   
                  <Route exact path='/users' component={ListUser}/>
                  <Route exact path='/addUser' component={AddUser}/>
-                 <Route exact path='/editUser/:id' 
-                 render={(props)=><EditUser id={props.match.params.id}/>} />
+                 <Route exact path='/editUser/:_id' 
+                 render={(props)=><EditUser _id={props.match.params._id}/>} />
                  
 
 
