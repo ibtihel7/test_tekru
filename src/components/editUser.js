@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import Button from "@material-ui/core/button";
 import Input from "@material-ui/core/Input";
-import axios from 'axios'
-
+import axios from "axios";
 
 class EditUser extends Component {
   constructor(props) {
@@ -33,31 +32,27 @@ class EditUser extends Component {
   //   this.props.editReducer({ ...this.state });
   // };
 
-// add axios
-  editUser=()=>
-  {
-     axios.put(`/edit-user/${this.state._id}`,{
-      // _id: this.state._id,
-      name: this.state.name,
-      family_name: this.state.family_name,
-      password: this.state.password,
-      last_login_date: this.state.last_login_date,
-      created_at: this.state.created_at,
-      updated_at: this.state.updated_at,
-      phone: this.state.phone,
-      email: this.state.email,
-   }) 
-    .then(()=>this.props.editUserReducer({...this.state})) 
-    .catch((err)=>alert(err))
-  }
-// 
-
-
+  // add axios
+  editUser = () => {
+    axios
+      .put(`/edit-user/${this.state._id}`, {
+        // _id: this.state._id,
+        name: this.state.name,
+        family_name: this.state.family_name,
+        password: this.state.password,
+        last_login_date: this.state.last_login_date,
+        created_at: this.state.created_at,
+        updated_at: this.state.updated_at,
+        phone: this.state.phone,
+        email: this.state.email,
+      })
+      .then(() => this.props.editUserReducer({ ...this.state }))
+      .catch((err) => alert(err));
+  };
+  //
 
   render() {
     return (
-      
-
       <div>
         <center>
           <h1>EDIT USER</h1>
@@ -85,7 +80,7 @@ class EditUser extends Component {
           <h5> Last Login Date </h5>
           <Input
             type="text"
-            name=" last_login_date"
+            name="last_login_date"
             value={this.state.last_login_date}
             onChange={this.handleChange}
           />
@@ -121,11 +116,9 @@ class EditUser extends Component {
           <br />
 
           <Link to="/users">
-
             <Button color="primary" variant="contained" onClick={this.editUser}>
               EDIT
             </Button>
-            
           </Link>
         </center>
       </div>
@@ -141,8 +134,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     editUserReducer: (edituser) => {
-      
-
       dispatch({
         type: "EDIT_USER",
         edituser,

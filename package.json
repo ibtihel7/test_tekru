@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "proxy": "http://localhost:3055",
-
   "dependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
@@ -20,6 +19,7 @@
     "date-fns": "^2.14.0",
     "formik": "^2.1.4",
     "history": "^5.0.0",
+    "jsonwebtoken": "^8.5.1",
     "react": "^16.13.1",
     "react-bootstrap": "^1.0.1",
     "react-dom": "^16.13.1",

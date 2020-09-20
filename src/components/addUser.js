@@ -4,8 +4,7 @@ import Button from "@material-ui/core/button";
 import Input from "@material-ui/core/input";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import axios from 'axios'
-
+import axios from "axios";
 
 class AddUser extends Component {
   constructor(props) {
@@ -33,17 +32,15 @@ class AddUser extends Component {
   //   this.props.addReducer({ ...this.state, id: Math.random() * 1000 + "" });
   // };
 
-
-
-// add axios
-  addUser=()=>
-  {
-    axios.post('/add-user',{...this.state})
-     .then(()=>this.props.addUserReducer({...this.state}))
-     .catch((err)=>alert(err)) 
-     console.log({...this.state});
-  }
-  // 
+  // add axios
+  addUser = () => {
+    axios
+      .post("/add-user", { ...this.state })
+      .then(() => this.props.addUserReducer({ ...this.state }))
+      .catch((err) => alert(err));
+    console.log({ ...this.state });
+  };
+  //
 
   render() {
     return (
@@ -60,7 +57,7 @@ class AddUser extends Component {
           <h5> Last Login Date </h5>
           <Input
             type="text"
-            name=" last_login_date"
+            name="last_login_date"
             onChange={this.handleChange}
           />
           <h5> Created At </h5>

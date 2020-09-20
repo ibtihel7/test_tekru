@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import ReactTable from "./reactTable";
 import Button from "@material-ui/core/button";
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import axios from 'axios' ;
 import IconButton from "@material-ui/core/IconButton";
@@ -49,13 +49,31 @@ const Styles = styled.div`
   }
 `;
 class ListUser extends Component {
-// axios
+
+
+  constructor(){
+    super()
+    let loggedIn = false
+    
+    const token = localStorage.getItem("token")
+    if(token) loggedIn = true
+    this.state= {
+        loggedIn
+    }
+}
+
+
+
   componentDidMount=()=>{
     axios.get('/get-users').then((res)=>this.props.updateUserReducer(res.data))
 }
 
+logout=()=>{
+  this.setState({
+      loggedIn: false
+  })
+}
 
-// 
 deleteUser=(id)=>
 { axios.delete(`/delete-user/${id}`)   
 .then(()=>this.props.deleteUserReducer(id)) 
@@ -77,6 +95,7 @@ deleteUser=(id)=>
       {
         Header: "Password",
         accessor: "password",
+        type:"password"
       },
       {
         Header: "Last Login Date",
@@ -105,14 +124,7 @@ deleteUser=(id)=>
         Cell: ({ row }) => (
 
 
-          // deleteUser=()=>
-          // { 
-          
-          // axios.delete(`/delete-user/${row.original._id}`)   
-          // .then(()=>this.props.deleteUserReducer(row.original._id)) 
-          // .catch((err)=>alert(err)) 
-          // }
-
+     
 
           <div>
               <IconButton aria-label="edit">
@@ -125,8 +137,6 @@ deleteUser=(id)=>
             {/* <Link to="/users"> */}
               <DeleteIcon
                 onClick={() => this.deleteUser(row.original._id)}
-
-
               />
                           {/* </Link> */}
 
@@ -136,6 +146,9 @@ deleteUser=(id)=>
       },
     ];
 
+    if(this.state.loggedIn === false){
+      return <Redirect to="/logout" />
+  }
     return (
       <div>
         <center>
@@ -149,12 +162,10 @@ deleteUser=(id)=>
               ADD USER
             </Button>
           </Link>
-          <Link to="./">
             <br /> <br />
-            <Button color="primary" variant="contained">
+            <Button color="primary" variant="contained"  onClick={this.logout}>
               LOG OUT
             </Button>
-          </Link>
         </center>
       </div>
     );
