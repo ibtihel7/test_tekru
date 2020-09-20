@@ -32,7 +32,6 @@ class EditUser extends Component {
   //   this.props.editReducer({ ...this.state });
   // };
 
-  // add axios
   editUser = () => {
     axios
       .put(`/edit-user/${this.state._id}`, {
@@ -49,7 +48,6 @@ class EditUser extends Component {
       .then(() => this.props.editUserReducer({ ...this.state }))
       .catch((err) => alert(err));
   };
-  //
 
   render() {
     return (

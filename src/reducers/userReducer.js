@@ -80,31 +80,21 @@ var users = [
   },
 ];
 
-const userReducer=(state=users,action)=>
-{
-  switch(action.type)
-  {
-      case 'ADD_USER' :
-      return (
-          state.concat(action.newuser)
-      )
-
-      case 'EDIT_USER':
-        debugger
-      return (
-          state.map(el=>el._id===action.edituser._id? el=action.edituser:el)
-      )
-      debugger
-      case 'REMOVE_USER':
-      return (
-          state.filter(el=>el._id!==action._id)
-      )
-      case 'UPDATE_USERS':
-      return(
-          state=action.users
-      )
-      default :
-      return state
+const userReducer = (state = users, action) => {
+  switch (action.type) {
+    case "ADD_USER":
+      return state.concat(action.newuser);
+    case "EDIT_USER":
+      debugger;
+      return state.map((el) =>
+        el._id === action.edituser._id ? (el = action.edituser) : el
+      );
+    case "REMOVE_USER":
+      return state.filter((el) => el._id !== action._id);
+    case "UPDATE_USERS":
+      return (state = action.users);
+    default:
+      return state;
   }
-}
-export default userReducer
+};
+export default userReducer;

@@ -32,7 +32,6 @@ class AddUser extends Component {
   //   this.props.addReducer({ ...this.state, id: Math.random() * 1000 + "" });
   // };
 
-  // add axios
   addUser = () => {
     axios
       .post("/add-user", { ...this.state })
@@ -40,8 +39,7 @@ class AddUser extends Component {
       .catch((err) => alert(err));
     console.log({ ...this.state });
   };
-  //
-
+  
   render() {
     return (
       <div className="add-user-container">
